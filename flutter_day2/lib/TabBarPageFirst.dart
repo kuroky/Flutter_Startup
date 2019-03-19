@@ -11,6 +11,10 @@ class _TabBarPageFirstState extends State<TabBarPageFirst> with AutomaticKeepAli
   final _suggestions = <String>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
+  void initState() {
+    super.initState();
+  }
+
   Widget _buildRow(String pair) {
     return ListTile(
       title: Text(
@@ -48,7 +52,7 @@ class _TabBarPageFirstState extends State<TabBarPageFirst> with AutomaticKeepAli
         if (i.isOdd) {
           return Divider();
         }
-        final index = 1 ~/ 2;
+        final index = i ~/ 2;
         if (index >= _suggestions.length) {
           _suggestions.addAll(generateWordPairs());
         }
@@ -58,7 +62,7 @@ class _TabBarPageFirstState extends State<TabBarPageFirst> with AutomaticKeepAli
   }
 
   @override
-  bool get wantKeepAlive => true;
+  bool get wantKeepAlive => true; // 防止界面切换时释放
 
   @override
   Widget build(BuildContext context) {

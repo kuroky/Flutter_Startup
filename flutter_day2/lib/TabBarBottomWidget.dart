@@ -31,7 +31,7 @@ class _TabBarBottomPageWidgetState extends State<TabBarBottomPageWidget> {
         onPressed: () {
           // 每个tabbar点击时，通过jumpTo跳转页面
           // 每个页面需要跳转坐标为：当前屏幕大小 * 索引index
-          topPageControl..jumpTo(MediaQuery.of(context).size.width * i);
+          topPageControl.jumpTo(MediaQuery.of(context).size.width * i);
         },
         child: Text(
           tab[i],

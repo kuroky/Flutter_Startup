@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_day2/BottomTabBarWidget.dart';
-import 'package:flutter_day2/TabBarWidget.dart';
+import 'package:flutter_day2/TabBarBottomWidget.dart';
+import 'package:flutter_day2/TabBarTopWidget.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,9 +28,9 @@ class MainPage extends StatelessWidget {
           FlatButton(
             color: Colors.blue,
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => TabBarWidget()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => TabBarTopWidget()));
             },
-            child: Text("Top Tabp"),
+            child: Text("Top Tab"),
           ),
           FlatButton(
             color: Colors.blue,
