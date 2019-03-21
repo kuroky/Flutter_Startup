@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// 主视图
 class TabBarWidget extends StatefulWidget {
   TabBarWidget(
       {Key key,
@@ -9,8 +10,8 @@ class TabBarWidget extends StatefulWidget {
       this.topPageController})
       : super(key: key);
 
-  static const int BOTTOM_TAB = 1;
-  static const int TOP_TAB = 2;
+  static const int BOTTOM_TAB = 1; // 底部的tab
+  static const int TOP_TAB = 2; // 顶部的tab
 
   final int type;
   final List<Widget> tabItems;

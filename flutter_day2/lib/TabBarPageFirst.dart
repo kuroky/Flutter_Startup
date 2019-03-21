@@ -8,18 +8,18 @@ class TabBarPageFirst extends StatefulWidget {
 }
 
 class _TabBarPageFirstState extends State<TabBarPageFirst> with AutomaticKeepAliveClientMixin {
-  final _suggestions = <String>[];
-  final _biggerFont = const TextStyle(fontSize: 18.0);
+  final suggestions = <String>[];
+  final biggerFont = const TextStyle(fontSize: 18.0);
 
   void initState() {
     super.initState();
   }
 
-  Widget _buildRow(String pair) {
+  Widget buildRow(String pair) {
     return ListTile(
       title: Text(
         pair,
-        style: _biggerFont,
+        style: biggerFont,
       ),
     );
   }
@@ -45,18 +45,18 @@ class _TabBarPageFirstState extends State<TabBarPageFirst> with AutomaticKeepAli
     ];
   }
 
-  Widget _buildSuggestions() {
+  Widget buildSuggestions() {
     return ListView.builder(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(16.0),
       itemBuilder: (context, i) {
         if (i.isOdd) {
           return Divider();
         }
         final index = i ~/ 2;
-        if (index >= _suggestions.length) {
-          _suggestions.addAll(generateWordPairs());
+        if (index >= suggestions.length) {
+          suggestions.addAll(generateWordPairs());
         }
-        return _buildRow(_suggestions[index]);
+        return buildRow(suggestions[index]);
       },
     );
   }
@@ -67,7 +67,7 @@ class _TabBarPageFirstState extends State<TabBarPageFirst> with AutomaticKeepAli
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return _buildSuggestions();
+    return buildSuggestions();
   }
   
 }

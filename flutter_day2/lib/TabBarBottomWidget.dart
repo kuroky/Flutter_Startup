@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_day2/TabBarWidget.dart';
 import 'package:flutter_day2/TabBarPageFirst.dart';
 import 'package:flutter_day2/TabBarPageSecond.dart';
+import 'package:flutter_day2/TabBarPageThird.dart';
 
 class TabBarBottomPageWidget extends StatefulWidget {
   @override
@@ -46,7 +47,7 @@ class _TabBarBottomPageWidgetState extends State<TabBarBottomPageWidget> {
   renderPage() {
     return [
       TabBarPageFirst(), 
-      TabBarPageFirst(), 
-      TabBarPageFirst()];
+      TabBarPageSecond(), 
+      TabBarPageThird()];
   }
 }
