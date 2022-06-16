@@ -1,10 +1,14 @@
-//import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_0613/widget/controller_demo_page.dart'
     deferred as controller_demo_page;
 import 'package:flutter_0613/widget/clip_demo_page.dart'
     deferred as clip_demo_page;
+import 'package:flutter_0613/widget/scroll_listener_demo_page.dart'
+    deferred as scroll_listener_demo_page;
+import 'package:flutter_0613/widget/scroll_to_index_demo_page.dart'
+    deferred as scroll_to_index_demo_page;
+import 'package:flutter_0613/widget/scroll_to_index_demo_page2.dart'
+    deferred as scroll_to_index_demo_page2;
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +45,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -127,8 +130,21 @@ Map<String, WidgetBuilder> routers = {
     });
   },
   "列表滑动监听": (context) {
-    return ContainerAsyncRouterPage(clip_demo_page.loadLibrary(), (context) {
-      return clip_demo_page.ClipDemoPage();
+    return ContainerAsyncRouterPage(scroll_listener_demo_page.loadLibrary(),
+        (context) {
+      return scroll_listener_demo_page.ScrollListenerDemoPage();
+    });
+  },
+  "滑动到指定位置": (context) {
+    return ContainerAsyncRouterPage(scroll_to_index_demo_page.loadLibrary(),
+        (context) {
+      return scroll_to_index_demo_page.ScrollToIndexDemoPage();
+    });
+  },
+  "滑动到指定位置2": (context) {
+    return ContainerAsyncRouterPage(scroll_to_index_demo_page2.loadLibrary(),
+        (context) {
+      return scroll_to_index_demo_page2.ScrollToIndexDemoPage2();
     });
   },
 };
