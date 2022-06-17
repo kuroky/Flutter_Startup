@@ -13,25 +13,28 @@ class Fetcher {
     return _fetcher!;
   }
 
-  late Dio _dio;
+  Dio? _dio;
 
   init() {
     _dio = createDio();
   }
 
-  Dio createDio() {
-    var dio = Dio(BaseOptions(
+  createDio() {
+    if (_dio != null) {
+      return;
+    }
+    _dio = Dio(BaseOptions(
       connectTimeout: Define.requestTimeout, // ms
       receiveTimeout: Define.requestTimeout,
       sendTimeout: Define.requestTimeout,
       baseUrl: Define.requestBaseUrl,
       responseType: ResponseType.json,
     ));
-    return dio;
   }
 
+/*
   void getHttp(String path, Map<String, dynamic> params, {Finish? finish}) {
-    _dio.get(path, queryParameters: params).then((response) {
+    _dio!.get(path, queryParameters: params).then((response) {
       String? errMsg;
       dynamic data;
       if (response.statusCode == 200) {
@@ -43,5 +46,19 @@ class Fetcher {
         finish(data, errMsg);
       }
     });
+  }
+  */
+
+  void getHttp(String path, Map<String, dynamic> params,
+      {Finish? finish}) async {
+    try {
+      Dio did = Dio();
+      did.options.baseUrl = Define.requestBaseUrl;
+    
+      var response = await did.get(path);
+      print(response);
+    } catch (e) {
+      print(e);
+    }
   }
 }

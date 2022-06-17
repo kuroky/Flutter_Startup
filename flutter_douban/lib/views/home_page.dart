@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_douban/tools/douban_appbar.dart';
 import 'package:flutter_douban/tools/network.dart';
+import 'package:flutter_douban/viewModels/provider.dart';
+import 'package:flutter_douban/viewModels/theatersViewModel.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -13,9 +15,8 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    Fetcher.instance().getHttp("http://www.baidu.com", {
-
-    });
+    //Fetcher.instance.createDio();
+    //Fetcher.instance.getHttp("http://www.baidu.com");
   }
 
   @override
@@ -24,7 +25,16 @@ class _MainPageState extends State<MainPage> {
       appBar: DouBanAppBar(title: "首页", canBack: false).bulid(context),
       body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[],
+          children: <Widget>[
+            ProviderWidget<TheatersViewModel>(
+                model: TheatersViewModel(),
+                onReady: (model) {
+                  model.load();
+                },
+                builder: (context, model, child) {
+                  return const Text("data");
+                }),
+          ],
         ),
       ),
     );
